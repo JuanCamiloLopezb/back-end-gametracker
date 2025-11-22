@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/gamerboxd')
   .then(() => console.log(' Conectado a MongoDB'))
   .catch(err => console.error(' Error de conexión:', err));
 
-// 2. Rutas (Endpoints) [cite: 52]
+
 
 // GET: Obtener todos los juegos
 app.get('/api/games', async (req, res) => {
@@ -38,7 +38,7 @@ app.post('/api/games', async (req, res) => {
   }
 });
 
-// PUT: Editar un juego (reseñas, horas, estado)
+// PUT: Editar los juegos (reseñas, horas, estado)
 app.put('/api/games/:id', async (req, res) => {
   try {
     const updatedGame = await Game.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -58,8 +58,8 @@ app.delete('/api/games/:id', async (req, res) => {
   }
 });
 
-// 3. Iniciar servidor
-const PORT = 4000; // <--- CAMBIO AQUÍ
+// Iniciar servidor
+const PORT = 4000; 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor backend corriendo en puerto ${PORT}`);
+  console.log(`Servidor backend corriendo en puerto ${PORT}`);
 });
